@@ -9,6 +9,7 @@ public class FindKthToTail {
         }
         ListNode p1 = pHead;
         ListNode p2 = pHead;
+        // 2个指针，一个先走 k-1 步，然后2个一起走，当先走的指针遇到null就是到链表末尾，另一个也就是到了第k个。
         for (int i = k; i > 1; i--) {
             if (p2.next != null) {
                 p2 = p2.next;

@@ -8,7 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/data-structure" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lianxi" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qiuzhao" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/leetcode" isTestSource="false" />
     </content>
     <orderEntry type="module-library">
       <library name="junit4">

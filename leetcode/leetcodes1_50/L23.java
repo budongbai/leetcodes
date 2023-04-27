@@ -29,7 +29,7 @@ public class L23 {
         return res;
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
@@ -53,7 +53,7 @@ public class L23 {
 
         ListNode dummy = new ListNode(0);
         ListNode tail = dummy;
-        //将所有的结点放到优先队列
+        //将所有的头结点放到优先队列
         for (ListNode node : lists)
             if (node != null)
                 queue.add(node);
@@ -71,33 +71,19 @@ public class L23 {
 
     public static ListNode mergeKLists3(ListNode[] lists) {
         //二分排序法
-        return partion(lists, 0, lists.length - 1);
+        return partition(lists, 0, lists.length - 1);
     }
 
-    public static ListNode partion(ListNode[] lists, int s, int e) {
+    public static ListNode partition(ListNode[] lists, int s, int e) {
         if (s == e)
             return lists[s];
         if (s < e) {
             int q = (s + e) / 2;
-            ListNode l1 = partion(lists, s, q);
-            ListNode l2 = partion(lists, q + 1, e);
-            return merge(l1, l2);
+            ListNode l1 = partition(lists, s, q);
+            ListNode l2 = partition(lists, q + 1, e);
+            return mergeTwoLists(l1, l2);
         } else
             return null;
     }
 
-    // This function is from Merge Two Sorted Lists.
-    public static ListNode merge(ListNode l1, ListNode l2) {
-        if (l1 == null)
-            return l2;
-        if (l2 == null)
-            return l1;
-        if (l1.val < l2.val) {
-            l1.next = merge(l1.next, l2);
-            return l1;
-        } else {
-            l2.next = merge(l1, l2.next);
-            return l2;
-        }
-    }
 }
