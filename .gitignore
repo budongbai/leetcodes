@@ -1,0 +1,17 @@
+*.iml
+.idea
+target
+build
+.DS_Store
+*.jar
+logs/
+.gradle
+classes/
+application.properties
+!gradle/wrapper/gradle-wrapper.jar
+out/
+_book/
+node_modules/
+gradle_cache/
+*.bin
+*.tracker
