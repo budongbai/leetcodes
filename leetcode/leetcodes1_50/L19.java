@@ -54,7 +54,7 @@ public class L19 {
 
         ListNode start = new ListNode(0);
         ListNode slow = start, fast = start;
-        slow.next = head;
+        start.next = head;
         //把快指针移动到第n+1位，使得快指针与慢指针之间相隔n个结点
         //Move fast in front so that the gap between slow and fast becomes n
         for (int i = 1; i <= n + 1; i++) {
@@ -69,6 +69,38 @@ public class L19 {
         //Skip the desired node
         slow.next = slow.next.next;
         return start.next;
+    }
+
+    public ListNode removeNthFromEnd3(ListNode head, int n) {
+        // 虚拟头结点
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        // 删除倒数第 n 个，要先找倒数第 n + 1 个节点
+        ListNode x = findKthToTail(dummy, n + 1);
+        // 删掉倒数第 n 个节点
+        x.next = x.next.next;
+        return dummy.next;
+    }
+
+    public ListNode findKthToTail(ListNode pHead, int k) {
+        if (pHead == null || k < 1) {
+            return null;
+        }
+        ListNode p1 = pHead;
+        ListNode p2 = pHead;
+        // 2个指针，一个先走 k-1 步，然后2个一起走，当先走的指针遇到null就是到链表末尾，另一个也就是到了第k个。
+        for (int i = k; i > 1; i--) {
+            if (p2.next != null) {
+                p2 = p2.next;
+            } else {
+                return null;
+            }
+        }
+        while (p2.next != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p1;
     }
 
 }
