@@ -1,7 +1,5 @@
 package datastructures;
 
-import leetcodes101_150.M1714;
-
 import java.util.Arrays;
 import java.util.Random;
 
