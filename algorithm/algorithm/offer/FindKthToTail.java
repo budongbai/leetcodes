@@ -1,6 +1,6 @@
 package algorithm.offer;
 
-import algorithm.num1.ListNode;
+import algorithm.helpers.ListNode;
 
 public class FindKthToTail {
     public ListNode FindKthToTail(ListNode pHead, int k) {

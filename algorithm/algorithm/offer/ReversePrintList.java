@@ -2,7 +2,7 @@
 
 package algorithm.offer;
 
-import algorithm.num1.ListNode;
+import algorithm.helpers.ListNode;
 
 import java.util.ArrayList;
 

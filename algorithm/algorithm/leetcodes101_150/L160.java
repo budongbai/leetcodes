@@ -1,6 +1,6 @@
 package algorithm.leetcodes101_150;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

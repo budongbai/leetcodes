@@ -1,6 +1,6 @@
 package algorithm.leetcodes101_150;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 public class L141 {
     public boolean hasCycle(ListNode head) {

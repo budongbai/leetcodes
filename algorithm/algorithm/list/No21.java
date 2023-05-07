@@ -2,7 +2,7 @@
 
 package algorithm.list;
 
-import algorithm.num1.ListNode;
+import algorithm.helpers.ListNode;
 
 public class No21 {
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {

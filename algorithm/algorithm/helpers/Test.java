@@ -1,4 +1,4 @@
-package helpers;
+package algorithm.helpers;
 
 import java.util.Arrays;
 import java.util.List;

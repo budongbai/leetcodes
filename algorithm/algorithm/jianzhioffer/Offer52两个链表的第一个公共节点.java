@@ -1,6 +1,6 @@
 package algorithm.jianzhioffer;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 public class Offer52两个链表的第一个公共节点 {
     ListNode getIntersectionNode(ListNode headA, ListNode headB) {

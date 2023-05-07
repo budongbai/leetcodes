@@ -1,8 +1,6 @@
 package algorithm.list;
 
-import helpers.ListNode;
-
-import java.util.List;
+import algorithm.helpers.ListNode;
 
 /**
  * 反转链表 - 递归

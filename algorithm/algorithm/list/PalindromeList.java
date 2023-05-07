@@ -1,6 +1,6 @@
 package algorithm.list;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 /**
  * 回文链表

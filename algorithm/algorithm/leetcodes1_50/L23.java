@@ -1,6 +1,6 @@
 package algorithm.leetcodes1_50;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

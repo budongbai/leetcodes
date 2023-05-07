@@ -29,8 +29,9 @@ public class L76 {
             }
             need.put(c, need.getOrDefault(c, 0) - 1);//把右边的字符加入窗口
             if (count == 0) {//窗口中已经包含所有字符
+                // need数量刚好等于0时，正好包含了所有字符，且字符串最小
                 while (left < right && need.getOrDefault(s.charAt(left), 0) < 0) {
-                    //释放右边移动出窗口的字符
+                    //释放左指针右移导致移动出窗口的字符
                     need.put(s.charAt(left), need.getOrDefault(s.charAt(left), 0) + 1);
                     left++;//指针右移
                 }

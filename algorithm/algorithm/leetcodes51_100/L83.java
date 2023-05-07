@@ -1,6 +1,6 @@
 package algorithm.leetcodes51_100;
 
-import helpers.ListNode;
+import algorithm.helpers.ListNode;
 
 /**
  * @author budongbai
