@@ -10,6 +10,9 @@ public class RebuildBinaryTree {
         TreeNode root = new TreeNode(pre[0]);
 
         for (int i = 0; i < in.length; i++) {
+            // 找到中序中root节点当前index，用index切分数组
+            // pre 0 root [1, i+1) 左子树 [i+1, length) 右子树
+            // in [0, i) 左子树 i root [i+1, length)
             if (in[i] == pre[0]) {
                 root.left = reConstructBinaryTree(
                     Arrays.copyOfRange(pre, 1, i + 1),
