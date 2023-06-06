@@ -16,6 +16,26 @@ public class L88 {
             nums1[k--] = nums2[j--];
     }
 
+    public void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int i = m - 1, j = n - 1;
+        int s = m + n - 1;
+        while (i >= 0 && j >= 0) {
+            if (nums1[i] > nums2[j]) {
+                nums1[s] = nums1[i];
+                i--;
+            } else {
+                nums1[s] = nums2[j];
+                j--;
+            }
+            s--;
+        }
+        while (j >= 0) {
+            nums1[s] = nums2[j];
+            j--;
+            s--;
+        }
+    }
+
     public static void main(String[] args) {
         L88 test = new L88();
 
@@ -26,7 +46,7 @@ public class L88 {
         // nums1[3]= 8;
         int[] nums2 = {2, 5, 6};
 
-        test.merge(nums1, 3, nums2, 3);
+        test.merge2(nums1, 3, nums2, 3);
         System.out.println(Arrays.toString(nums1));
     }
 }
