@@ -60,6 +60,7 @@ public class L53 {
         return max;
     }
 
+
     /**
      * 这个是典型的一维DP问题解法。
      *
@@ -69,11 +70,12 @@ public class L53 {
      * @version 2017年7月10日下午1:52:25
      */
     public int maxSubArray3(int[] nums) {
-        int[] all = new int[nums.length];
-        int[] start = new int[nums.length];
-        all[nums.length - 1] = nums[nums.length - 1];
-        start[nums.length - 1] = nums[nums.length - 1];
-        for (int i = nums.length - 2; i >= 0; i--) {
+        int n = nums.length;
+        int[] all = new int[n];
+        int[] start = new int[n];
+        all[n - 1] = nums[n - 1];
+        start[n - 1] = nums[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
             start[i] = Math.max(nums[i], start[i + 1] + nums[i]);
             all[i] = Math.max(start[i], all[i + 1]);
         }
@@ -98,6 +100,16 @@ public class L53 {
             nAll = Math.max(nStart, nAll);
         }
         return nAll;
+    }
+
+    public int maxSubArray5(int[] nums) {
+        int pre = 0, res = nums[0];
+        // 经典子问题，dp[i] = Math.max(nums[i], dp[i-1]+nums[i])
+        for (int num : nums) {
+            pre = Math.max(num, num + pre);
+            res = Math.max(pre, res);
+        }
+        return res;
     }
 
     public static void main(String[] args) {

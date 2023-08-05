@@ -30,7 +30,7 @@ public class L10正则表达式匹配 {
          * 3, If p.charAt(j) == '*':
          *    here are two sub conditions:
          *                1   if p.charAt(j-1) != s.charAt(i) : dp[i][j] = dp[i][j-2]  //in this case, a* only counts as empty
-         *                2   if p.charAt(i-1) == s.charAt(i) or p.charAt(i-1) == '.':
+         *                2   if p.charAt(j-1) == s.charAt(i) or p.charAt(j-1) == '.':
          *                               dp[i][j] = dp[i-1][j]    //in this case, a* counts as multiple a
          *                            or dp[i][j] = dp[i][j-1]   // in this case, a* counts as single a
          *                            or dp[i][j] = dp[i][j-2]   // in this case, a* counts as empty
@@ -42,14 +42,14 @@ public class L10正则表达式匹配 {
                     dp[i + 1][j + 1] = dp[i][j];
                 } else if (p.charAt(j) == '*') {
                     // 模式串中字符为*，可能存储没有匹配，匹配一个，匹配多个的情况
-                    // 如果当前字符串前一个字符没有和模式串前2个字符匹配，且前2个字符不是万能字符，这个就没有匹配上
-                    if (p.charAt(j - 1) != s.charAt(i) && p.charAt(j - 1) != '.') {
-                        // p的x*没和s匹配上，跳过x*
-                        dp[i + 1][j + 1] = dp[i + 1][j - 1];
-                    } else {
+                    // 如果当前字符串前一个字符和模式串前2个字符匹配 或 模式串的前个字符是万能字符
+                    if (p.charAt(j - 1) == s.charAt(i) || p.charAt(j - 1) == '.') {
                         dp[i + 1][j + 1] = dp[i][j + 1] // a* 匹配多个a
-                            || dp[i + 1][j]             // a*匹配一个a
-                            || dp[i + 1][j - 1];        // a* 没匹配
+                                || dp[i + 1][j]             // a*匹配一个a
+                                || dp[i + 1][j - 1];        // a* 没匹配
+                    } else {
+                        // p的x*没和s匹配上，跳过x*
+                        dp[i + 1][j + 1] = dp[i + 1][j - 1]; // a*没匹配
                     }
                 }
             }
