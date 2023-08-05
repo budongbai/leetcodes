@@ -11,10 +11,10 @@ import java.util.List;
 public class L78 {
     //位操作法
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<List<Integer>> res = new ArrayList<>();
         int size = (int) Math.pow(2, nums.length);
         for (int i = 0; i < size; i++) {
-            List<Integer> tmp = new ArrayList<Integer>();
+            List<Integer> tmp = new ArrayList<>();
             int j = i, count = 0;
             while (j > 0) {
                 if ((j & 1) == 1) {
@@ -31,7 +31,6 @@ public class L78 {
     //递归解法
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
         backtrack(list, new ArrayList<>(), nums, 0);
         return list;
     }

@@ -28,7 +28,7 @@ public class L46 {
                 used[i] = true;
                 cur.add(num[i]);
                 backTracking(cur, used);
-                cur.remove(new Integer(num[i]));
+                cur.remove(Integer.valueOf(num[i]));
                 used[i] = false;
             }
         }
@@ -36,20 +36,19 @@ public class L46 {
 
     // 迭代的做法
     public List<List<Integer>> permute2(int[] nums) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<List<Integer>> res = new ArrayList<>();
         if (nums == null || nums.length == 0)
             return res;
-        List<Integer> first = new ArrayList<Integer>();
+        List<Integer> first = new ArrayList<>();
         first.add(nums[0]);
         res.add(first);
         for (int i = 1; i < nums.length; i++) {
-            List<List<Integer>> newRes = new ArrayList<List<Integer>>();
-            for (int j = 0; j < res.size(); j++) {
-                List<Integer> cur = res.get(j);
-                for (int k = 0; k < cur.size() + 1; k++) {
+            List<List<Integer>> newRes = new ArrayList<>();
+            for (List<Integer> cur : res) {
+                for (int j = 0; j < cur.size() + 1; j++) {
                     //把第i个元素一一加入到原有链表中的各子链表中的各个位置，比如链表中只有一个含有元素1的子链表，这时我们要加入2，所以就能得到1,2和2,1.
-                    List<Integer> item = new ArrayList<Integer>(cur);
-                    item.add(k, nums[i]);
+                    List<Integer> item = new ArrayList<>(cur);
+                    item.add(j, nums[i]);
                     newRes.add(item);
                 }
             }
